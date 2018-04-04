@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
-import {PageLayout} from '../layout/PageLayout';
+import React, { Component } from 'react';
+import { PageLayout } from '../layout/PageLayout';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import '../../node_modules/react-tabs/style/react-tabs.css';
 
 class ViewOrder extends Component {
     constructor(props) {
@@ -11,56 +13,56 @@ class ViewOrder extends Component {
             <PageLayout title='Order details'>
                 <div className="box">
                     <div className="box-body">
-                        <div className='row'>
-                            <div className='col-md-4'>
-                                <table className='table table-striped table-bordered'>
-                                    <tbody>
-                                        <Info title='Order ID' value={this.props.match.params.id}/>
-                                        <Info title='Customer Name' value='Albert King'/>
-                                        <Info title='Customer Address' value='13 abc'/>
-                                        <Info title='Customer Email' value='albert@gmail.com'/>
-                                        <Info title='Customer Phone' value='9084555433'/>
-                                        <Info title='ReOrder ID REF' value='N/A'/>
-                                        <Info title='Order Status' value='Proposal'/>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div className='col-md-3'>
-                                <table className='table table-striped table-bordered'>
-                                    <tbody>
-                                        <Info title='Employee Name' value='Hoang Hai'/>
-                                        <Info title='Order Date' value='04/03/2018 22:31'/>
-                                        <Info title='Pickup Date' value='05/03/2018 22:31'/>
-                                        <Info title='Complete Date' value='05/13/2018 22:31'/>
-                                        <Info title='Invoice No.' value='ACB20314'/>
-                                        <Info title='Invoice Date' value='30/03/2018'/>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div className='col-md-5'>
+                        <Tabs>
+                            <TabList>
+                                <Tab>Order Information</Tab>
+                                <Tab>Payment Information</Tab>
+                            </TabList>
+                            <TabPanel>
                                 <div className='row'>
                                     <div className='col-md-6'>
                                         <table className='table table-striped table-bordered'>
-                                            <thead>
-                                                <tr>
-                                                    <th colSpan='3'>Payment Information</th>
-                                                </tr>
-                                            </thead>
                                             <tbody>
-                                                <Info title='Payment Type' value='C.O.D'/>
-                                                <Info title='Taxes(GST)' value='10%'/>
-                                                <Info title='Discount?' value='10%'/>
-                                                <Info title='Surcharged' value='30$'/>
-                                                <Info title='Ship Fee' value=''/>
+                                                <Info title='Order ID' value={this.props.match.params.id} />
+                                                <Info title='Customer Name' value='Albert King' />
+                                                <Info title='Customer Address' value='13 abc' />
+                                                <Info title='Customer Email' value='albert@gmail.com' />
+                                                <Info title='Customer Phone' value='9084555433' />
+                                                <Info title='ReOrder ID REF' value='N/A' />
+                                                <Info title='Order Status' value='Proposal' />
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div className='col-md-6'>
+                                        <table className='table table-striped table-bordered'>
+                                            <tbody>
+                                                <Info title='Employee Name' value='Hoang Hai' />
+                                                <Info title='Order Date' value='04/03/2018 22:31' />
+                                                <Info title='Pickup Date' value='05/03/2018 22:31' />
+                                                <Info title='Complete Date' value='05/13/2018 22:31' />
+                                                <Info title='Invoice No.' value='ACB20314' />
+                                                <Info title='Invoice Date' value='30/03/2018' />
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </TabPanel>
+                            <TabPanel>
+                                <div className='row'>
+                                    <div className='col-md-6'>
+                                        <table className='table table-striped table-bordered'>
+                                            <tbody>
+                                                <Info title='Payment Type' value='C.O.D' />
+                                                <Info title='Taxes(GST)' value='10%' />
+                                                <Info title='Discount?' value='10%' />
+                                                <Info title='Surcharged' value='30$' />
+                                                <Info title='Ship Fee' value='' />
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className='col-md-6'>
                                         <table className='table table-striped table-bordered'>
                                             <thead>
-                                                <tr>
-                                                    <th colSpan='3'>Payment</th>
-                                                </tr>
                                                 <tr>
                                                     <th>.No</th>
                                                     <th>Values</th>
@@ -106,6 +108,11 @@ class ViewOrder extends Component {
                                         </table>
                                     </div>
                                 </div>
+                            </TabPanel>
+                        </Tabs>
+                        <div className='row'>
+                            <div className='col-md-5'>
+
                             </div>
                         </div>
                         <div className='product-list'>
@@ -150,7 +157,7 @@ class ViewOrder extends Component {
                                         <td>Nga</td>
                                     </tr>
                                     <tr>
-                                        <td rowSpan='5' colSpan='3'/>
+                                        <td rowSpan='5' colSpan='3' />
                                         <td colSpan='13'><b>Component Includes</b></td>
                                     </tr>
                                     <tr>
@@ -212,15 +219,15 @@ class ViewOrder extends Component {
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                       <td>type 1</td> 
-                                                       <td></td>
-                                                       <td></td>
-                                                       <td></td>
-                                                       <td></td>
-                                                       <td></td>
-                                                       <td></td>
-                                                       <td></td>
-                                                       <td></td>
+                                                        <td>type 1</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
