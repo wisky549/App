@@ -1,0 +1,3 @@
+D:\PhongHoang\Projects\AnhViet\www\App3\App\www\obj\Debug\www.njsproj.CoreCompileInputs.cache
+D:\PhongHoang\Projects\AnhViet\www\App3\App\www\bin\Microsoft.NodejsTools.WebRole.dll
+D:\PhongHoang\Projects\AnhViet\www\App3\App\www\obj\Debug\www.njsprojResolveAssemblyReference.cache

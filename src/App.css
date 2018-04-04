@@ -1,0 +1,43 @@
+.error-message {
+    color: red;
+}
+
+label {
+    font-weight: normal;
+}
+
+.content-wrapper {
+    min-height: 1000px;
+}
+
+.react-datepicker-wrapper, .react-datepicker__input-container {
+    width: 100%;
+}
+
+.button-inline {
+    margin-top: 25px;
+}
+
+.main-header h1 {
+    float: left;
+    font-size: 20px;
+    margin: 14px;
+    color: white;
+}
+
+.page-size {
+    display: inline-block;
+    width: auto;
+    margin: 20px auto;
+}
+.table-scroll{
+    overflow-x: auto;
+}
+
+.table-scroll table{
+    min-width: 2000px;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    padding: 5px;
+}
