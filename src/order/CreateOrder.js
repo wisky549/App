@@ -115,6 +115,12 @@ class CreateOrder extends Component {
                             </div>
                         </div>
                         <div className='row'>
+                            <div className='col-md-12 form-group'>
+                                <label>Note</label>
+                                <textarea className='form-control'></textarea>
+                            </div>
+                        </div>
+                        <div className='row'>
                             <div className='col-md-12 text-right'>
                                 <button onClick={this.onNext} className='btn btn-primary'>Save and next to product details</button>
                             </div>

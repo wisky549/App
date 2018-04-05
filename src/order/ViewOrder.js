@@ -1,18 +1,43 @@
-import React, {Component} from 'react';
-import {PageLayout} from '../layout/PageLayout';
-import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+import React, { Component } from 'react';
+import Modal from 'react-modal';
+import { PageLayout } from '../layout/PageLayout';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import '../../node_modules/react-tabs/style/react-tabs.css';
+
+Modal.setAppElement('#root')
 
 class ViewOrder extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            editOrder: false
+        };
+
+        this.editOrder = this.editOrder.bind(this);
+    }
+
+    editOrder(e) {
+        this.setState({
+            editOrder: true
+        })
     }
 
     render() {
         return (
             <PageLayout title='Order details'>
+
                 <div className="box">
                     <div className="box-body">
+                        <Modal style={{ content: { width: '50%' } }} isOpen={this.state.editOrder}>
+                            <div className='row'>
+                                <div className='col-md-12'>
+                                    <div className="text-right buttons">
+                                        <button type="button" className="btn btn-default" >Close</button>
+                                        <button type="button" className="btn btn-primary ml-5px">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </Modal>
                         <Tabs>
                             <TabList>
                                 <Tab>Order Information</Tab>
@@ -23,33 +48,39 @@ class ViewOrder extends Component {
                                     <div className='col-md-6'>
                                         <table className='table table-striped table-bordered'>
                                             <tbody>
-                                                <Info title='Order Type' value='Bán lẻ'/>
-                                                <Info title='Order ID' value={this.props.match.params.id}/>
-                                                <Info title='Customer Name' value='Albert King'/>
-                                                <Info title='Customer Address' value='13 abc'/>
-                                                <Info title='Customer Email' value='albert@gmail.com'/>
-                                                <Info title='Customer Phone' value='9084555433'/>
-                                                <Info title='Order ID REF' value='N/A'/>
+                                                <Info title='Order Type' value='Bán lẻ' />
+                                                <Info title='Order ID' value={this.props.match.params.id} />
+                                                <Info title='Customer Name' value='Albert King' />
+                                                <Info title='Customer Address' value='13 abc' />
+                                                <Info title='Customer Email' value='albert@gmail.com' />
+                                                <Info title='Customer Phone' value='9084555433' />
+                                                <Info title='Order ID REF' value='N/A' />
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className='col-md-6'>
                                         <table className='table table-striped table-bordered'>
                                             <tbody>
-                                                <Info title='Order Status' value='Proposal'/>
-                                                <Info title='Employee Name' value='Hoang Hai'/>
-                                                <Info title='Order Date' value='04/03/2018 22:31'/>
-                                                <Info title='Pickup Date' value='05/03/2018 22:31'/>
-                                                <Info title='Complete Date' value='05/13/2018 22:31'/>
-                                                <Info title='Invoice No.' value='ACB20314'/>
-                                                <Info title='Invoice Date' value='30/03/2018'/>
+                                                <Info title='Order Status' value='Proposal' />
+                                                <Info title='Employee Name' value='Hoang Hai' />
+                                                <Info title='Order Date' value='04/03/2018 22:31' />
+                                                <Info title='Pickup Date' value='05/03/2018 22:31' />
+                                                <Info title='Complete Date' value='05/13/2018 22:31' />
+                                                <Info title='Invoice No.' value='ACB20314' />
+                                                <Info title='Invoice Date' value='30/03/2018' />
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                                 <div className='row'>
-                                    <div className='col-md-12 text-right'>
-                                        <button className='btn btn-primary'>Edit order info</button>
+                                    <div className='col-md-12'>
+                                        <div className='form-group'>
+                                            <label>Note</label>
+                                            <textarea disabled={true} className='form-control'></textarea>
+                                        </div>
+                                        <div className='text-right'>
+                                            <button onClick={this.editOrder} className='btn btn-primary'>Edit order info</button>
+                                        </div>
                                     </div>
                                 </div>
                             </TabPanel>
@@ -58,11 +89,11 @@ class ViewOrder extends Component {
                                     <div className='col-md-6'>
                                         <table className='table table-striped table-bordered'>
                                             <tbody>
-                                                <Info title='Payment Type' value='C.O.D'/>
-                                                <Info title='Taxes(GST)' value='10%'/>
-                                                <Info title='Discount?' value='10%'/>
-                                                <Info title='Surcharged' value='30$'/>
-                                                <Info title='Ship Fee' value=''/>
+                                                <Info title='Payment Type' value='C.O.D' />
+                                                <Info title='Taxes(GST)' value='10%' />
+                                                <Info title='Discount?' value='10%' />
+                                                <Info title='Surcharged' value='30$' />
+                                                <Info title='Ship Fee' value='' />
                                             </tbody>
                                         </table>
                                     </div>
@@ -113,13 +144,15 @@ class ViewOrder extends Component {
                                     </div>
                                 </div>
                                 <div className='row'>
-                                    <div className='col-md-12 text-right'>
-                                    <button className='btn btn-primary'>Edit payment info</button>
+                                    <div className='col-md-12'>
+                                        <div className='text-right'>
+                                            <button className='btn btn-primary'>Edit payment info</button>
+                                        </div>
                                     </div>
                                 </div>
                             </TabPanel>
                         </Tabs>
-                        <hr/>
+                        <hr />
                         <div className='product-list'>
                             <h2>Product list of Order</h2>
                             <div className='action-items form-group'>
@@ -162,7 +195,7 @@ class ViewOrder extends Component {
                                         <td>Nga</td>
                                     </tr>
                                     <tr>
-                                        <td rowSpan='5' colSpan='3'/>
+                                        <td rowSpan='5' colSpan='3' />
                                         <td colSpan='13'>
                                             <b>Component Includes</b>
                                         </td>
