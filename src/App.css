@@ -100,3 +100,29 @@ label {
     top: auto !important;
     left: auto !important;
 }
+
+.Select-control:hover {
+    box-shadow: none;
+}
+
+.Select.is-focused:not(.is-open) > .Select-control {
+    box-shadow: none;
+    background: #fff;
+}
+
+.Select-control{
+    height: 27px;
+    border-radius: 0;
+}
+
+.Select-input{
+    height: 25px;
+}
+
+.Select-placeholder, .Select--single > .Select-control .Select-value{
+    line-height: 25px;
+}
+
+.Select-input > input{
+    padding: 4px 0 4px;
+}

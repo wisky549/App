@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import 'icheck/skins/all.css';
 
 import registerServiceWorker from './registerServiceWorker';
 

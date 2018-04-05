@@ -3,7 +3,11 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import {Login} from './account/Login';
 import {Home} from './landing/Home';
+
+import 'icheck/skins/all.css';
+import 'react-select/dist/react-select.css';
 import './App.css';
+
 import {Route, BrowserRouter, Switch} from 'react-router-dom';
 import {PrivateRoute} from './app/PrivateRoute';
 import ManageUser from './account/ManageUser';
