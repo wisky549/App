@@ -19,7 +19,7 @@ export class App extends Component {
                     <PrivateRoute exact path='/' component={Home}/>
                     <PrivateRoute exact path='/manageUser' component={ManageUser}/>
                     <PrivateRoute exact path='/order' component={OrderList}/>
-                    <PrivateRoute exact path='/order/create' component={CreateOrder}/>
+                    <PrivateRoute exact path='/order/create' component={CreateOrder} user={{name:'phong'}}/>
                     <PrivateRoute path='/order/view/:id' component={ViewOrder}/>
                     <Route path='/login' component={Login}/>
                 </Switch>

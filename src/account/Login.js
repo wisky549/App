@@ -33,9 +33,12 @@ export class Login extends Component {
         }
         console.log('component state', JSON.stringify(this.state));
 
-        localStorage.setItem('user', JSON.stringify({token:'testtoken'}));
+        localStorage.setItem('user', JSON.stringify({token: 'testtoken', name: this.state.username}));
 
-        this.props.history.push('/');
+        this
+            .props
+            .history
+            .push('/');
     }
 
     onChange(e, eApp) {
@@ -45,8 +48,7 @@ export class Login extends Component {
             this.setState({
                 [eApp.name]: eApp.value
             });
-        }
-        else{
+        } else {
             this.setState({
                 [e.target.name]: e.target.value
             });

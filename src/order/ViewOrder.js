@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { PageLayout } from '../layout/PageLayout';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import React, {Component} from 'react';
+import {PageLayout} from '../layout/PageLayout';
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import '../../node_modules/react-tabs/style/react-tabs.css';
 
 class ViewOrder extends Component {
@@ -23,27 +23,33 @@ class ViewOrder extends Component {
                                     <div className='col-md-6'>
                                         <table className='table table-striped table-bordered'>
                                             <tbody>
-                                                <Info title='Order ID' value={this.props.match.params.id} />
-                                                <Info title='Customer Name' value='Albert King' />
-                                                <Info title='Customer Address' value='13 abc' />
-                                                <Info title='Customer Email' value='albert@gmail.com' />
-                                                <Info title='Customer Phone' value='9084555433' />
-                                                <Info title='Order ID REF' value='N/A' />
-                                                <Info title='Order Status' value='Proposal' />
+                                                <Info title='Order Type' value='Bán lẻ'/>
+                                                <Info title='Order ID' value={this.props.match.params.id}/>
+                                                <Info title='Customer Name' value='Albert King'/>
+                                                <Info title='Customer Address' value='13 abc'/>
+                                                <Info title='Customer Email' value='albert@gmail.com'/>
+                                                <Info title='Customer Phone' value='9084555433'/>
+                                                <Info title='Order ID REF' value='N/A'/>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className='col-md-6'>
                                         <table className='table table-striped table-bordered'>
                                             <tbody>
-                                                <Info title='Employee Name' value='Hoang Hai' />
-                                                <Info title='Order Date' value='04/03/2018 22:31' />
-                                                <Info title='Pickup Date' value='05/03/2018 22:31' />
-                                                <Info title='Complete Date' value='05/13/2018 22:31' />
-                                                <Info title='Invoice No.' value='ACB20314' />
-                                                <Info title='Invoice Date' value='30/03/2018' />
+                                                <Info title='Order Status' value='Proposal'/>
+                                                <Info title='Employee Name' value='Hoang Hai'/>
+                                                <Info title='Order Date' value='04/03/2018 22:31'/>
+                                                <Info title='Pickup Date' value='05/03/2018 22:31'/>
+                                                <Info title='Complete Date' value='05/13/2018 22:31'/>
+                                                <Info title='Invoice No.' value='ACB20314'/>
+                                                <Info title='Invoice Date' value='30/03/2018'/>
                                             </tbody>
                                         </table>
+                                    </div>
+                                </div>
+                                <div className='row'>
+                                    <div className='col-md-12 text-right'>
+                                        <button className='btn btn-primary'>Edit order info</button>
                                     </div>
                                 </div>
                             </TabPanel>
@@ -52,11 +58,11 @@ class ViewOrder extends Component {
                                     <div className='col-md-6'>
                                         <table className='table table-striped table-bordered'>
                                             <tbody>
-                                                <Info title='Payment Type' value='C.O.D' />
-                                                <Info title='Taxes(GST)' value='10%' />
-                                                <Info title='Discount?' value='10%' />
-                                                <Info title='Surcharged' value='30$' />
-                                                <Info title='Ship Fee' value='' />
+                                                <Info title='Payment Type' value='C.O.D'/>
+                                                <Info title='Taxes(GST)' value='10%'/>
+                                                <Info title='Discount?' value='10%'/>
+                                                <Info title='Surcharged' value='30$'/>
+                                                <Info title='Ship Fee' value=''/>
                                             </tbody>
                                         </table>
                                     </div>
@@ -100,21 +106,20 @@ class ViewOrder extends Component {
                                                 <tr>
                                                     <td>Amount Applied</td>
                                                     <td>$550</td>
-                                                    <td>
-                                                        <button className='btn btn-sm btn-primary'>Add</button>
-                                                    </td>
+                                                    <td></td>
                                                 </tr>
                                             </tfoot>
                                         </table>
                                     </div>
                                 </div>
+                                <div className='row'>
+                                    <div className='col-md-12 text-right'>
+                                    <button className='btn btn-primary'>Edit payment info</button>
+                                    </div>
+                                </div>
                             </TabPanel>
                         </Tabs>
-                        <div className='row'>
-                            <div className='col-md-5'>
-
-                            </div>
-                        </div>
+                        <hr/>
                         <div className='product-list'>
                             <h2>Product list of Order</h2>
                             <div className='action-items form-group'>
@@ -124,8 +129,8 @@ class ViewOrder extends Component {
                                 <thead>
                                     <tr>
                                         <th>.No</th>
-                                        <th>Product Code</th>
-                                        <th>Product Name</th>
+                                        <th>Code</th>
+                                        <th>Name</th>
                                         <th>Width</th>
                                         <th>Drop</th>
                                         <th>Meterial</th>
@@ -157,16 +162,30 @@ class ViewOrder extends Component {
                                         <td>Nga</td>
                                     </tr>
                                     <tr>
-                                        <td rowSpan='5' colSpan='3' />
-                                        <td colSpan='13'><b>Component Includes</b></td>
+                                        <td rowSpan='5' colSpan='3'/>
+                                        <td colSpan='13'>
+                                            <b>Component Includes</b>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td><b>ID</b></td>
-                                        <td colSpan='4'><b>Name</b></td>
-                                        <td><b>Quantity</b></td>
-                                        <td><b>Unit Price</b></td>
-                                        <td><b>Extent Charged</b></td>
-                                        <td><b>Total Price</b></td>
+                                        <td>
+                                            <b>ID</b>
+                                        </td>
+                                        <td colSpan='4'>
+                                            <b>Name</b>
+                                        </td>
+                                        <td>
+                                            <b>Quantity</b>
+                                        </td>
+                                        <td>
+                                            <b>Unit Price</b>
+                                        </td>
+                                        <td>
+                                            <b>Extent Charged</b>
+                                        </td>
+                                        <td>
+                                            <b>Total Price</b>
+                                        </td>
                                         <td colSpan='2'></td>
                                     </tr>
                                     <tr>
