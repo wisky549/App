@@ -1,9 +1,48 @@
+body{
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.logo{
+    background-position: 50% 3px;
+    background-size: 35%;
+    background-repeat: no-repeat;
+    background-image: url('/images/logo.png');
+}
+
+.main-header h1 {
+    float: left;
+    font-size: 20px;
+    margin: 14px;
+    color: white;
+}
+
 .error-message {
     color: red;
 }
 
+b, strong, th{
+    font-weight: 500;
+}
+
 label {
-    font-weight: normal;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.btn-sm{
+    padding: 4px 10px;
+}
+
+.form-control{
+    height: 27px;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.form-group{
+    margin-bottom: 10px;
 }
 
 .content-wrapper {
@@ -15,14 +54,11 @@ label {
 }
 
 .button-inline {
-    margin-top: 25px;
+    margin-top: 17px;
 }
 
-.main-header h1 {
-    float: left;
-    font-size: 20px;
-    margin: 14px;
-    color: white;
+.box-body{
+    padding: 15px;
 }
 
 .page-size {
@@ -55,6 +91,7 @@ label {
     justify-content: center;
     display: flex;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.75) !important;
 }
 
 .ReactModal__Content{

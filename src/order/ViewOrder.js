@@ -3,41 +3,31 @@ import Modal from 'react-modal';
 import { PageLayout } from '../layout/PageLayout';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import '../../node_modules/react-tabs/style/react-tabs.css';
-
-Modal.setAppElement('#root')
+import { EditOrderModal } from './EditOrderInfoModal';
+import { EditPaymentModal } from './EditPaymentModal';
 
 class ViewOrder extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            editOrder: false
+            editOrder: false,
+            editPayment: false
         };
 
         this.editOrder = this.editOrder.bind(this);
     }
 
-    editOrder(e) {
+    editOrder(isOpen) {
         this.setState({
-            editOrder: true
+            editOrder: isOpen
         })
     }
 
     render() {
         return (
             <PageLayout title='Order details'>
-
                 <div className="box">
                     <div className="box-body">
-                        <Modal style={{ content: { width: '50%' } }} isOpen={this.state.editOrder}>
-                            <div className='row'>
-                                <div className='col-md-12'>
-                                    <div className="text-right buttons">
-                                        <button type="button" className="btn btn-default" >Close</button>
-                                        <button type="button" className="btn btn-primary ml-5px">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Modal>
                         <Tabs>
                             <TabList>
                                 <Tab>Order Information</Tab>
@@ -79,7 +69,8 @@ class ViewOrder extends Component {
                                             <textarea disabled={true} className='form-control'></textarea>
                                         </div>
                                         <div className='text-right'>
-                                            <button onClick={this.editOrder} className='btn btn-primary'>Edit order info</button>
+                                            <EditOrderModal user={this.props.user} isOpen={this.state.editOrder} onClose={() => this.editOrder(false)} />
+                                            <button onClick={() => this.editOrder(true)} className='btn btn-primary'>Edit order info</button>
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +127,7 @@ class ViewOrder extends Component {
                                             <tfoot>
                                                 <tr>
                                                     <td>Amount Applied</td>
-                                                    <td>$550</td>
+                                                    <td>$500</td>
                                                     <td></td>
                                                 </tr>
                                             </tfoot>
@@ -146,7 +137,10 @@ class ViewOrder extends Component {
                                 <div className='row'>
                                     <div className='col-md-12'>
                                         <div className='text-right'>
-                                            <button className='btn btn-primary'>Edit payment info</button>
+                                            <EditPaymentModal isOpen={this.state.editPayment}
+                                                onClose={() => { this.setState({ editPayment: false }) }} />
+                                            <button onClick={() => { this.setState({ editPayment: true }) }}
+                                                className='btn btn-primary'>Edit payment info</button>
                                         </div>
                                     </div>
                                 </div>

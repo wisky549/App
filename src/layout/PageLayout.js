@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import NavBar from './NavBar';
+import{ Link } from 'react-router-dom';
 import { BaseLayout } from './BaseLayout';
 
 export class PageLayout extends Component {
@@ -14,9 +15,9 @@ export class PageLayout extends Component {
         return <BaseLayout title={this.props.title}>
             <div className="wrapper">
                 <header className="main-header">
-                    <a href="../../index2.html" className="logo">
-                        <span>Web app</span>
-                    </a>
+                    <Link to="/" className="logo">
+                        
+                    </Link>
                     <nav className="navbar navbar-static-top">
                         <h1>{this.props.title}</h1>
                         <div className="navbar-custom-menu">

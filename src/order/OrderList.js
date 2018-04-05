@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Pagination from "react-js-pagination";
-import {Link} from 'react-router-dom';
-import {PageLayout} from '../layout/PageLayout';
-import {CreateOrder} from './CreateOrder';
+import { Link } from 'react-router-dom';
+import { PageLayout } from '../layout/PageLayout';
+import { CreateOrder } from './CreateOrder';
 
 class OrderList extends Component {
     constructor() {
@@ -12,11 +12,11 @@ class OrderList extends Component {
             .bind(this);
     }
 
-    onChange(e) {}
+    onChange(e) { }
 
     row = (items) => {
         var rows = [];
-        for (var i = 0; i < 50; i++) {
+        for (var i = 0; i < 10; i++) {
             rows.push(
                 <tr key={i}>
                     <td>
@@ -78,18 +78,18 @@ class OrderList extends Component {
                             </div>
                             <div className='col-md-3'>
                                 <div className='form-group'>
-                                    <label>From date</label>
-                                    <input type='date' className='form-control'/>
+                                    <label>Order date from</label>
+                                    <input type='date' className='form-control' />
                                 </div>
                             </div>
                             <div className='col-md-3'>
                                 <div className='form-group'>
-                                    <label>To date</label>
-                                    <input type='date' className='form-control'/>
+                                    <label>to date</label>
+                                    <input type='date' className='form-control' />
                                 </div>
                             </div>
                             <div className='col-md-3'>
-                                <button className='btn btn-primary button-inline'>Find</button>
+                                <button className='btn btn-primary btn-sm button-inline'>Find</button>
                             </div>
                         </div>
                         <div className='table-scroll'>
@@ -126,19 +126,17 @@ class OrderList extends Component {
                             </table>
                         </div>
                         <div className='paging'>
-                            <select className='form-control page-size'>
+                            <Pagination innerClass='pagination pagination-sm'
+                                itemsCountPerPage={50}
+                                totalItemsCount={450}
+                                pageRangeDisplayed={5} />
+                            <select className='form-control page-size pull-right'>
                                 <option>10</option>
                                 <option>20</option>
                                 <option>50</option>
                                 <option>100</option>
                                 <option>200</option>
                             </select>
-                            <div className='pull-right'>
-                                <Pagination
-                                    itemsCountPerPage={50}
-                                    totalItemsCount={450}
-                                    pageRangeDisplayed={5}/>
-                            </div>
                         </div>
 
                     </div>
