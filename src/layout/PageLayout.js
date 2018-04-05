@@ -1,23 +1,24 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import NavBar from './NavBar';
-import{ Link } from 'react-router-dom';
-import { BaseLayout } from './BaseLayout';
+import {Link} from 'react-router-dom';
+import {BaseLayout} from './BaseLayout';
 
 export class PageLayout extends Component {
     constructor() {
         super();
         document
             .getElementById('body')
-            .className = 'hold-transition skin-blue sidebar-mini';
+            .className = 'hold-transition skin-blue-light sidebar-mini';
     }
     render() {
         return <BaseLayout title={this.props.title}>
             <div className="wrapper">
                 <header className="main-header">
-                    <Link to="/" className="logo">
-                        
-                    </Link>
+                    <Link to="/" className="logo"></Link>
+                    <a href="#" className="sidebar-toggle">
+                        <span className="sr-only">Toggle navigation</span>
+                    </a>
                     <nav className="navbar navbar-static-top">
                         <h1>{this.props.title}</h1>
                         <div className="navbar-custom-menu">
@@ -38,7 +39,7 @@ export class PageLayout extends Component {
                 </header>
 
                 <NavBar/>
-                
+
                 <div className="content-wrapper">
                     <section className="content">
                         {this.props.children}

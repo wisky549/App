@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Modal from 'react-modal';
-import { PageLayout } from '../layout/PageLayout';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import {PageLayout} from '../layout/PageLayout';
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import '../../node_modules/react-tabs/style/react-tabs.css';
-import { EditOrderModal } from './EditOrderInfoModal';
-import { EditPaymentModal } from './EditPaymentModal';
+import {EditOrderModal} from './EditOrderInfoModal';
+import {EditPaymentModal} from './EditPaymentModal';
+import {AddProductModal} from './AddProductModal';
 
 class ViewOrder extends Component {
     constructor(props) {
@@ -14,13 +15,20 @@ class ViewOrder extends Component {
             editPayment: false
         };
 
-        this.editOrder = this.editOrder.bind(this);
+        this.editOrder = this
+            .editOrder
+            .bind(this);
+        this.addProduct = this
+            .addProduct
+            .bind(this);
     }
 
     editOrder(isOpen) {
-        this.setState({
-            editOrder: isOpen
-        })
+        this.setState({editOrder: isOpen})
+    }
+
+    addProduct(isOpen) {
+        this.setState({isAddProduct: isOpen});
     }
 
     render() {
@@ -38,26 +46,26 @@ class ViewOrder extends Component {
                                     <div className='col-md-6'>
                                         <table className='table table-striped table-bordered'>
                                             <tbody>
-                                                <Info title='Order Type' value='Bán lẻ' />
-                                                <Info title='Order ID' value={this.props.match.params.id} />
-                                                <Info title='Customer Name' value='Albert King' />
-                                                <Info title='Customer Address' value='13 abc' />
-                                                <Info title='Customer Email' value='albert@gmail.com' />
-                                                <Info title='Customer Phone' value='9084555433' />
-                                                <Info title='Order ID REF' value='N/A' />
+                                                <Info title='Order Type' value='Bán lẻ'/>
+                                                <Info title='Order ID' value={this.props.match.params.id}/>
+                                                <Info title='Customer Name' value='Albert King'/>
+                                                <Info title='Customer Address' value='13 abc'/>
+                                                <Info title='Customer Email' value='albert@gmail.com'/>
+                                                <Info title='Customer Phone' value='9084555433'/>
+                                                <Info title='Order ID REF' value='N/A'/>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div className='col-md-6'>
                                         <table className='table table-striped table-bordered'>
                                             <tbody>
-                                                <Info title='Order Status' value='Proposal' />
-                                                <Info title='Employee Name' value='Hoang Hai' />
-                                                <Info title='Order Date' value='04/03/2018 22:31' />
-                                                <Info title='Pickup Date' value='05/03/2018 22:31' />
-                                                <Info title='Complete Date' value='05/13/2018 22:31' />
-                                                <Info title='Invoice No.' value='ACB20314' />
-                                                <Info title='Invoice Date' value='30/03/2018' />
+                                                <Info title='Order Status' value='Proposal'/>
+                                                <Info title='Employee Name' value='Hoang Hai'/>
+                                                <Info title='Order Date' value='04/03/2018 22:31'/>
+                                                <Info title='Pickup Date' value='05/03/2018 22:31'/>
+                                                <Info title='Complete Date' value='05/13/2018 22:31'/>
+                                                <Info title='Invoice No.' value='ACB20314'/>
+                                                <Info title='Invoice Date' value='30/03/2018'/>
                                             </tbody>
                                         </table>
                                     </div>
@@ -69,7 +77,10 @@ class ViewOrder extends Component {
                                             <textarea disabled={true} className='form-control'></textarea>
                                         </div>
                                         <div className='text-right'>
-                                            <EditOrderModal user={this.props.user} isOpen={this.state.editOrder} onClose={() => this.editOrder(false)} />
+                                            <EditOrderModal
+                                                user={this.props.user}
+                                                isOpen={this.state.editOrder}
+                                                onClose={() => this.editOrder(false)}/>
                                             <button onClick={() => this.editOrder(true)} className='btn btn-primary'>Edit order info</button>
                                         </div>
                                     </div>
@@ -80,11 +91,11 @@ class ViewOrder extends Component {
                                     <div className='col-md-6'>
                                         <table className='table table-striped table-bordered'>
                                             <tbody>
-                                                <Info title='Payment Type' value='C.O.D' />
-                                                <Info title='Taxes(GST)' value='10%' />
-                                                <Info title='Discount?' value='10%' />
-                                                <Info title='Surcharged' value='30$' />
-                                                <Info title='Ship Fee' value='' />
+                                                <Info title='Payment Type' value='C.O.D'/>
+                                                <Info title='Taxes(GST)' value='10%'/>
+                                                <Info title='Discount?' value='10%'/>
+                                                <Info title='Surcharged' value='30$'/>
+                                                <Info title='Ship Fee' value=''/>
                                             </tbody>
                                         </table>
                                     </div>
@@ -137,20 +148,29 @@ class ViewOrder extends Component {
                                 <div className='row'>
                                     <div className='col-md-12'>
                                         <div className='text-right'>
-                                            <EditPaymentModal isOpen={this.state.editPayment}
-                                                onClose={() => { this.setState({ editPayment: false }) }} />
-                                            <button onClick={() => { this.setState({ editPayment: true }) }}
+                                            <EditPaymentModal
+                                                isOpen={this.state.editPayment}
+                                                onClose={() => {
+                                                this.setState({editPayment: false})
+                                            }}/>
+                                            <button
+                                                onClick={() => {
+                                                this.setState({editPayment: true})
+                                            }}
                                                 className='btn btn-primary'>Edit payment info</button>
                                         </div>
                                     </div>
                                 </div>
                             </TabPanel>
                         </Tabs>
-                        <hr />
+                        <hr/>
                         <div className='product-list'>
                             <h2>Product list of Order</h2>
                             <div className='action-items form-group'>
-                                <button className='btn btn-primary'>Add product</button>
+                                <AddProductModal
+                                    isOpen={this.state.isAddProduct}
+                                    onClose={() => this.addProduct(false)}/>
+                                <button onClick={() => this.addProduct(true)} className='btn btn-primary'>Add product</button>
                             </div>
                             <table className='table'>
                                 <thead>
@@ -189,7 +209,7 @@ class ViewOrder extends Component {
                                         <td>Nga</td>
                                     </tr>
                                     <tr>
-                                        <td rowSpan='5' colSpan='3' />
+                                        <td rowSpan='5' colSpan='3'/>
                                         <td colSpan='13'>
                                             <b>Component Includes</b>
                                         </td>
