@@ -127,11 +127,11 @@ class OrderList extends Component {
                         </div>
                         <div className='paging'>
                             <select className='form-control page-size'>
+                                <option>10</option>
+                                <option>20</option>
                                 <option>50</option>
                                 <option>100</option>
                                 <option>200</option>
-                                <option>500</option>
-                                <option>1000</option>
                             </select>
                             <div className='pull-right'>
                                 <Pagination

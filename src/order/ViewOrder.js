@@ -28,7 +28,7 @@ class ViewOrder extends Component {
                                                 <Info title='Customer Address' value='13 abc' />
                                                 <Info title='Customer Email' value='albert@gmail.com' />
                                                 <Info title='Customer Phone' value='9084555433' />
-                                                <Info title='ReOrder ID REF' value='N/A' />
+                                                <Info title='Order ID REF' value='N/A' />
                                                 <Info title='Order Status' value='Proposal' />
                                             </tbody>
                                         </table>
@@ -124,7 +124,7 @@ class ViewOrder extends Component {
                                 <thead>
                                     <tr>
                                         <th>.No</th>
-                                        <th>Product ID</th>
+                                        <th>Product Code</th>
                                         <th>Product Name</th>
                                         <th>Width</th>
                                         <th>Drop</th>

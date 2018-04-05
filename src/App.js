@@ -9,6 +9,7 @@ import {PrivateRoute} from './app/PrivateRoute';
 import ManageUser from './account/ManageUser';
 import OrderList from './order/OrderList';
 import ViewOrder from './order/ViewOrder';
+import CreateOrder from './order/CreateOrder';
 
 export class App extends Component {
     render() {
@@ -18,6 +19,7 @@ export class App extends Component {
                     <PrivateRoute exact path='/' component={Home}/>
                     <PrivateRoute exact path='/manageUser' component={ManageUser}/>
                     <PrivateRoute exact path='/order' component={OrderList}/>
+                    <PrivateRoute exact path='/order/create' component={CreateOrder}/>
                     <PrivateRoute path='/order/view/:id' component={ViewOrder}/>
                     <Route path='/login' component={Login}/>
                 </Switch>
