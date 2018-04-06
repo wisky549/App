@@ -16,11 +16,10 @@ export class AppModal extends Component {
                     <div className='col-md-12'>
                         <div className=''>{this.props.children}</div>
                         <div className="text-right buttons">
+                            {this.props.rightButton}
                             <button type="button" className="btn btn-default" onClick={this.props.onClose}>Close</button>
                             {
-                                !this.props.isHideSave ?
-                                    <button hidden={true} type="button" className="btn btn-primary ml-5px">Save</button>
-                                    : null
+                                !this.props.isHideSave ? <button hidden={true} type="button" className="btn btn-primary ml-5px">Save</button> : null
                             }
                         </div>
                     </div>

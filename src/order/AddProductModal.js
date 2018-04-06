@@ -11,95 +11,138 @@ export class AddProductModal extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            name: null,
-            meterial: null,
-            unitPrice: ''
-        };
+        this.state = { product: null, meterial: null, unitPrice: '' };
 
-        this.onSelect = this.onSelect.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.onProductChange = this.onProductChange.bind(this);
         this.onMeterialSelect = this.onMeterialSelect.bind(this);
         this.calculateUnitPrice = this.calculateUnitPrice.bind(this);
     };
 
     onChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-
         if (['width', 'drop'].includes(e.target.name)) {
-            this.calculateUnitPrice();
+            this.setState({ [e.target.name]: e.target.value }, () => this.calculateUnitPrice());
+        }
+        else {
+            this.setState({ [e.target.name]: e.target.value });
         }
     }
 
-    onSelect(cp, name, option) {
-        let value = option != null ? option.value : '';
-        cp.setState({
-            [name]: value
+    onProductChange(option) {
+        this.setState({ 'product': option, 'meterial': option != null ? this.state.meterial : null }, () => {
+            this.calculateUnitPrice();
         });
-
-        cp.calculateUnitPrice();
     }
 
     onMeterialSelect(option) {
-        var value = option != null ? option.value : '';
-        this.setState({
-            'meterial': value
+        this.setState({ 'meterial': option != null ? option.value : null }, () => {
+            this.calculateUnitPrice();
         });
-
-        this.calculateUnitPrice();
     }
 
     calculateUnitPrice() {
-        setTimeout(() => {
-            if (this.state.meterial != null && this.state.width != null && this.state.drop != null) {
-                var unitPrice = this.state.width + this.state.drop
-            }
-            else {
-                unitPrice = null;
-            }
+        if (this.state.meterial != null && this.state.width != null && this.state.drop != null) {
+            var unitPrice = this.state.width + this.state.drop
+        } else {
+            unitPrice = null;
+        }
 
-            this.setState({
-                unitPrice: unitPrice
-            })
-        })
+        this.setState({ unitPrice: unitPrice })
     }
 
     render() {
         return (
-            <AppModal {...this.props}>
+            <AppModal {...this.props} rightButton={<RightButton />}>
                 <div className='row'>
                     <div className='col-md-6'>
                         <div className='form-group'>
                             <label>Product name</label>
-                            <Select name='name'
-                                value={this.state.name}
-                                onChange={(e) => this.onSelect(this, 'name', e)}
-                                options={Data.products} />
+                            <Select name='name' value={this.state.product} options={Data.products}
+                                onChange={this.onProductChange} />
                         </div>
                     </div>
-                    <TextBox name='width' title='Width'
-                        value={this.state.width} onChange={this.onChange} type='number' />
-                    <TextBox name='drop' title='Drop'
-                        value={this.state.drop} onChange={this.onChange} type='number' />
+                    <TextBox name='width' title='Width' value={this.state.width} type='number'
+                        onChange={this.onChange} />
+                    <TextBox name='drop' title='Drop' value={this.state.drop} type='number'
+                        onChange={this.onChange} />
                     <div className='col-md-6'>
                         <div className='form-group'>
                             <label>Meterial</label>
-                            <Select name='meterial'
-                                value={this.state.meterial}
-                                onChange={this.onMeterialSelect}
-                                options={Data.products[0].meterials} />
+                            <Select name='meterial' value={this.state.meterial} options={Data.products[0].meterials}
+                                onChange={this.onMeterialSelect} />
                         </div>
                     </div>
-                    <TextBox name='unitPrice' title='UnitPrice'
-                        value={this.state.unitPrice} disabled={true} type='number' />
-                    <TextBox title='Location' type='textbox' />
-                    <TextBox title='Control side' type='textbox' />
-                    <TextBox title='Quantity' type='number' />
+                    <TextBox name='unitPrice' title='UnitPrice' value={this.state.unitPrice} disabled={true} type='number' />
+                    <TextBox name='location' title='Location' type='textbox' value={this.state.location}
+                        onChange={this.onChange} />
+                    <TextBox name='colour' title='Colour' type='textbox' value={this.state.colour}
+                        onChange={this.onChange} />
+                    <TextBox name='control' title='Control side' type='textbox' value={this.state.control}
+                        onChange={this.onChange} />
+                    <TextBox name='quantity' title='Quantity' type='number' value={this.state.quantity}
+                        onChange={this.onChange} />
+                    <ExtendFields product={this.state.product} onChange={this.onChange} state={this.state} />
                 </div>
+                <ProductComponents product={this.state.product} />
             </AppModal>
         );
+    }
+}
+
+export default AddProductModal;
+
+class RightButton extends Component {
+    render() {
+        return (
+            <div className='pull-left'>
+                <button className='btn btn-default'>Add components</button>
+            </div>
+        );
+    }
+}
+
+class ProductComponents extends Component {
+    render() {
+        const product = this.props.product;
+        if (product && product.components) {
+            let rows = product.components.map((c, i) => {
+                return <tr key={'component_' + i}>
+                    <td>{i + 1}</td>
+                    <td>{c.title}</td>
+                    <td>{1}</td>
+                    <td>{c.price}</td>
+                    <td>{!c.free ? 'Yes' : 'No'}</td>
+                    <th></th>
+                </tr>
+            });
+
+            return (<table className='table'>
+                <thead><tr>
+                    <th>.No</th><th>Name</th><th>Quantity</th><th>Unit price</th><th>Extent Charged</th><th></th>
+                </tr></thead>
+                <tbody>
+                    {rows}
+                </tbody>
+            </table>)
+        }
+
+        return (null);
+    }
+}
+
+class ExtendFields extends Component {
+    render() {
+        let fields = [];
+        if (this.props.product != null) {
+            Data.productTypes[this.props.product.typeIndex].fields.forEach(field => {
+                let name = 'ext.' + field.name;
+                fields.push(<TextBox key={name} name={name} title={field.title}
+                    type={field.type} value={this.props.state[name]}
+                    onChange={this.props.onChange} />)
+            });
+        }
+
+        return (fields);
     }
 }
 
@@ -110,12 +153,12 @@ class TextBox extends Component {
             <div className='col-md-6'>
                 <div className='form-group'>
                     <label>{this.props.title}</label>
-                    <input name={this.props.name} onChange={(e) => this.props.onChange(e)}
-                        type={this.props.type} value={value} className='form-control' />
+                    <input name={this.props.name} type={this.props.type}
+                        value={value} disabled={this.props.disabled}
+                        onChange={(e) => this.props.onChange(e)}
+                        className='form-control' />
                 </div>
             </div>
         );
     }
 }
-
-export default AddProductModal;
