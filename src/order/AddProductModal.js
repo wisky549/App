@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { AppModal } from '../layout/AppModal';
 import Select from 'react-select';
 import { Data } from '../app/DataMock';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { DynamicInput } from '../control/DynamicInput';
 
 export class AddProductModal extends Component {
-
-    static propTypes = {};
 
     constructor(props) {
         super(props)
@@ -54,7 +53,7 @@ export class AddProductModal extends Component {
         return (
             <AppModal {...this.props} rightButton={<RightButton />}>
                 <div className='row'>
-                    <div className='col-md-6'>
+                    <div className='col-md-4'>
                         <div className='form-group'>
                             <label>Product name</label>
                             <Select name='name' value={this.state.product} options={Data.products}
@@ -65,7 +64,7 @@ export class AddProductModal extends Component {
                         onChange={this.onChange} />
                     <TextBox name='drop' title='Drop' value={this.state.drop} type='number'
                         onChange={this.onChange} />
-                    <div className='col-md-6'>
+                    <div className='col-md-4'>
                         <div className='form-group'>
                             <label>Meterial</label>
                             <Select name='meterial' value={this.state.meterial} options={Data.products[0].meterials}
@@ -106,19 +105,19 @@ class ProductComponents extends Component {
         const product = this.props.product;
         if (product && product.components) {
             let rows = product.components.map((c, i) => {
-                return <tr key={'component_' + i}>
+                if (c.free) return <tr key={'component_' + i}>
                     <td>{i + 1}</td>
                     <td>{c.title}</td>
                     <td>{1}</td>
-                    <td>{c.price}</td>
-                    <td>{!c.free ? 'Yes' : 'No'}</td>
-                    <th></th>
+                    <td>{c.free ? 0 : c.price}</td>
+                    <td>{c.free ? 'No' : 'Yes'}</td>
+                    <td><i className="fas fa-trash"></i></td>
                 </tr>
             });
 
             return (<table className='table'>
                 <thead><tr>
-                    <th>.No</th><th>Name</th><th>Quantity</th><th>Unit price</th><th>Extent Charged</th><th></th>
+                    <th>.No</th><th>Name</th><th>Quantity</th><th>Unit price</th><th>Extent Charged</th><th style={{ width: '22px' }}></th>
                 </tr></thead>
                 <tbody>
                     {rows}
@@ -136,9 +135,16 @@ class ExtendFields extends Component {
         if (this.props.product != null) {
             Data.productTypes[this.props.product.typeIndex].fields.forEach(field => {
                 let name = 'ext.' + field.name;
-                fields.push(<TextBox key={name} name={name} title={field.title}
-                    type={field.type} value={this.props.state[name]}
-                    onChange={this.props.onChange} />)
+                fields.push(
+                    <div className='col-md-4' key={name}>
+                        <div className='form-group'>
+                            <label>{field.title}</label>
+                            <DynamicInput name={name} type={field.type} options={field.options}
+                                value={this.props.state[name]}
+                                onChange={(e) => this.props.onChange(e)} />
+                        </div>
+                    </div>
+                )
             });
         }
 
@@ -150,7 +156,7 @@ class TextBox extends Component {
     render() {
         let value = this.props.value == null ? '' : this.props.value;
         return (
-            <div className='col-md-6'>
+            <div className='col-md-4'>
                 <div className='form-group'>
                     <label>{this.props.title}</label>
                     <input name={this.props.name} type={this.props.type}

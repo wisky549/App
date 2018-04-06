@@ -11,7 +11,7 @@ export class AppModal extends Component {
 
     render() {
         return (
-            <Modal style={{ content: { width: '50%' } }} isOpen={this.props.isOpen}>
+            <Modal style={{ content: { width: '90%' } }} isOpen={this.props.isOpen}>
                 <div className='row'>
                     <div className='col-md-12'>
                         <div className=''>{this.props.children}</div>

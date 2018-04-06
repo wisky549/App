@@ -274,21 +274,11 @@ class ViewOrder extends Component {
                                                         <th>WITH SPRING</th>
                                                         <th>MATEIRAL WIDTH</th>
                                                         <th>MATEIRAL DROP SIZE</th>
-                                                        <th>FLAP</th>
-                                                        <th>FLAP TYPE</th>
-                                                        <th>FLAP SIZE</th>
-                                                        <th>BOTTOM RAIL</th>
-                                                        <th>HOOD SIZE</th>
-                                                        <th>FRAME</th>
-                                                        <th>MESH</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                         <td>type 1</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
                                                         <td></td>
                                                         <td></td>
                                                         <td></td>

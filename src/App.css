@@ -26,6 +26,10 @@ b, strong, th{
     font-weight: 500;
 }
 
+.fa-trash{
+    color: rgb(214, 34, 34)
+}
+
 label {
     font-weight: 500;
     margin-bottom: 0;
@@ -99,6 +103,7 @@ label {
     position: relative !important;
     top: auto !important;
     left: auto !important;
+    right: auto !important;
 }
 
 .Select-control:hover {
