@@ -30,6 +30,11 @@ b, strong, th {
     color: rgb(214, 34, 34)
 }
 
+.fa-edit {
+    color: rgb(11, 184, 11);
+    cursor: pointer;
+}
+
 label {
     font-weight: 500;
     margin-bottom: 0;
@@ -75,16 +80,16 @@ label {
     overflow-x: auto;
 }
 
-.table-scroll table {
-    min-width: 2000px;
-}
-
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     padding: 5px;
 }
 
 .mr-5px {
     margin-right: 5px;
+}
+
+.mt-15px{
+    margin-top: 15px;
 }
 
 .ml-5px {
@@ -149,12 +154,21 @@ label {
     background: none;
 }
 
-.has-feedback label~.form-control-feedback{
+.has-feedback label~.form-control-feedback {
     top: 19px;
 }
 
-.form-control-feedback{
+.form-control-feedback {
     width: 30px;
     height: 25px;
     line-height: 26px;
+}
+
+.progress-bar-default {
+    background: none;
+    color: #000;
+}
+
+.text-red {
+    color: red;
 }

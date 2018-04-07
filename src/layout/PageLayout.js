@@ -16,9 +16,6 @@ export class PageLayout extends Component {
             <div className="wrapper">
                 <header className="main-header">
                     <Link to="/" className="logo"></Link>
-                    <a href="#" className="sidebar-toggle">
-                        <span className="sr-only">Toggle navigation</span>
-                    </a>
                     <nav className="navbar navbar-static-top">
                         <h1>{this.props.title}</h1>
                         <div className="navbar-custom-menu">
@@ -26,11 +23,6 @@ export class PageLayout extends Component {
                                 <li className="dropdown user user-menu">
                                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">
                                         <span className="hidden-xs">Phong Hoang</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="control-sidebar">
-                                        <i className="fa fa-gears"></i>
                                     </a>
                                 </li>
                             </ul>

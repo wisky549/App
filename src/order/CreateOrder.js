@@ -31,7 +31,7 @@ export class CreateOrder extends Component {
                         <OrderForm user={this.props.user} />
                         <div className='row'>
                             <div className='col-md-12 text-right'>
-                                <button onClick={this.onNext} className='btn btn-primary'>Save and next to product details</button>
+                                <button onClick={this.onNext} className='btn btn-primary'>Next Step >></button>
                             </div>
                         </div>
                     </div>

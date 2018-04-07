@@ -93,7 +93,7 @@ class OrderList extends Component {
                             </div>
                         </div>
                         <div className='table-scroll'>
-                            <table className='table table-striped table-bordered'>
+                            <table className='table table-striped table-bordered' style={{ minWidth: '1500px' }}>
                                 <thead>
                                     <tr>
                                         <th>Order Id</th>

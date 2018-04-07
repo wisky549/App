@@ -117,7 +117,7 @@ class ProductComponents extends Component {
 
             return (<table className='table'>
                 <thead><tr>
-                    <th>.No</th><th>Name</th><th>Quantity</th><th>Unit price</th><th>Extent Charged</th><th style={{ width: '22px' }}></th>
+                    <th>.No</th><th>Name</th><th>Quantity</th><th>Unit price</th><th>Ext Charge</th><th style={{ width: '22px' }}></th>
                 </tr></thead>
                 <tbody>
                     {rows}

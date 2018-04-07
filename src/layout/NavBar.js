@@ -35,6 +35,11 @@ class NavBar extends Component {
                                 <li><Link to='/order'>Product categories</Link></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#">
+                                <span>Purchase</span>
+                            </a>
+                        </li>
                         <li className="treeview menu-open">
                             <Link to='/'>
                                 <span>Suppliers</span>
@@ -60,11 +65,6 @@ class NavBar extends Component {
                                 <li><Link to='/order'>Users list</Link></li>
                                 <li><Link to='/order/create'>Create user</Link></li>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span>Purchase</span>
-                            </a>
                         </li>
                     </ul>
                 </section>
