@@ -340,6 +340,10 @@ class ViewOrder extends Component {
                                 </tbody>
                             </table>
                         </div>
+                        <div className=''>
+                            <button className='btn btn-primary'>Print invoice</button>
+                            <button className='btn btn-primary ml-5px'>Services</button>
+                        </div>
                     </div>
                 </div>
             </PageLayout>

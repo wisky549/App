@@ -1,10 +1,10 @@
-body{
+body {
     font-family: Roboto;
     font-size: 13px;
     font-weight: 400;
 }
 
-.logo{
+.logo {
     background-position: 50% 3px;
     background-size: 35%;
     background-repeat: no-repeat;
@@ -22,11 +22,11 @@ body{
     color: red;
 }
 
-b, strong, th{
+b, strong, th {
     font-weight: 500;
 }
 
-.fa-trash{
+.fa-trash {
     color: rgb(214, 34, 34)
 }
 
@@ -35,17 +35,17 @@ label {
     margin-bottom: 0;
 }
 
-.btn-sm{
+.btn-sm {
     padding: 4px 10px;
 }
 
-.form-control{
+.form-control {
     height: 27px;
     padding: 5px;
     font-size: 12px;
 }
 
-.form-group{
+.form-group {
     margin-bottom: 10px;
 }
 
@@ -61,7 +61,7 @@ label {
     margin-top: 17px;
 }
 
-.box-body{
+.box-body {
     padding: 15px;
 }
 
@@ -70,27 +70,28 @@ label {
     width: auto;
     margin: 20px auto;
 }
-.table-scroll{
+
+.table-scroll {
     overflow-x: auto;
 }
 
-.table-scroll table{
+.table-scroll table {
     min-width: 2000px;
 }
 
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     padding: 5px;
 }
 
-.mr-5px{
+.mr-5px {
     margin-right: 5px;
 }
 
-.ml-5px{
+.ml-5px {
     margin-left: 5px;
 }
 
-.ReactModal__Overlay{
+.ReactModal__Overlay {
     z-index: 9000;
     justify-content: center;
     display: flex;
@@ -98,7 +99,7 @@ label {
     background-color: rgba(0, 0, 0, 0.75) !important;
 }
 
-.ReactModal__Content{
+.ReactModal__Content {
     padding: 15px !important;
     position: relative !important;
     top: auto !important;
@@ -110,24 +111,40 @@ label {
     box-shadow: none;
 }
 
-.Select.is-focused:not(.is-open) > .Select-control {
+.Select.is-focused:not(.is-open)>.Select-control {
     box-shadow: none;
     background: #fff;
 }
 
-.Select-control{
+.Select-control {
     height: 27px;
     border-radius: 0;
 }
 
-.Select-input{
+.Select-input {
     height: 25px;
 }
 
-.Select-placeholder, .Select--single > .Select-control .Select-value{
+.Select-placeholder, .Select--single>.Select-control .Select-value {
     line-height: 25px;
 }
 
-.Select-input > input{
+.Select-input>input {
     padding: 4px 0 4px;
+}
+
+.treeview-menu {
+    padding-left: 10px;
+}
+
+.menu-open .treeview-menu {
+    display: block;
+}
+
+.skin-blue-light .sidebar-menu>li>.treeview-menu {
+    background: none;
+}
+
+.skin-blue-light .sidebar-menu>li:hover>a {
+    background: none;
 }

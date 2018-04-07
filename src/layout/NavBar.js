@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
     constructor(props) {
@@ -16,20 +16,50 @@ class NavBar extends Component {
                                 <span>Report</span>
                             </Link>
                         </li>
-                        <li className="treeview">
+                        <li className="treeview menu-open">
                             <Link to='/order'>
                                 <span>Orders</span>
                             </Link>
+                            <ul className="treeview-menu">
+                                <li><Link to='/order'>Order list</Link></li>
+                                <li><Link to='/order/create'>Create order</Link></li>
+                            </ul>
                         </li>
-                        <li>
-                            <a href="#">
-                                <span>Users</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
+                        <li className="treeview menu-open">
+                            <Link to='/order'>
                                 <span>Products</span>
-                            </a>
+                            </Link>
+                            <ul className="treeview-menu">
+                                <li><Link to='/order/create'>Create product</Link></li>
+                                <li><Link to='/order'>Product list</Link></li>
+                                <li><Link to='/order'>Product categories</Link></li>
+                            </ul>
+                        </li>
+                        <li className="treeview menu-open">
+                            <Link to='/'>
+                                <span>Suppliers</span>
+                            </Link>
+                            <ul className="treeview-menu">
+                                <li><Link to='/order/create'>Create supplier</Link></li>
+                                <li><Link to='/order'>Supplier list</Link></li>
+                            </ul>
+                        </li>
+                        <li className="treeview menu-open">
+                            <Link to='/'>
+                                <span>Services</span>
+                            </Link>
+                            <ul className="treeview-menu">
+                                <li><Link to='/order'>Service list</Link></li>
+                            </ul>
+                        </li>
+                        <li className="treeview menu-open">
+                            <Link to='/order'>
+                                <span>Users</span>
+                            </Link>
+                            <ul className="treeview-menu">
+                                <li><Link to='/order'>Users list</Link></li>
+                                <li><Link to='/order/create'>Create user</Link></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#">
