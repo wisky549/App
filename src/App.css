@@ -148,3 +148,13 @@ label {
 .skin-blue-light .sidebar-menu>li:hover>a {
     background: none;
 }
+
+.has-feedback label~.form-control-feedback{
+    top: 19px;
+}
+
+.form-control-feedback{
+    width: 30px;
+    height: 25px;
+    line-height: 26px;
+}
