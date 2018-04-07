@@ -181,7 +181,7 @@ class ViewOrder extends Component {
                                 <button onClick={() => this.addProduct(true)} className='btn btn-primary'>Add product</button>
                             </div>
                             <div className='table-scroll'>
-                                <table className='table' style={{ minWidth: '1500px' }}>
+                                <table className='table' style={{ minWidth: '1200px' }}>
                                     <thead>
                                         <tr>
                                             <th></th>
@@ -216,7 +216,7 @@ class ViewOrder extends Component {
                                             <td>1</td>
                                             <td>2,800.00</td>
                                             <td>Blue</td>
-                                            <td>2,800.00</td>
+                                            <td>$ 2,800.00</td>
                                             <td>New</td>
                                             <td>Nga</td>
                                             <ProductActions onClick={() => this.addProduct(true)} />
@@ -315,7 +315,7 @@ class ViewOrder extends Component {
                                             <td>1</td>
                                             <td>2,800.00</td>
                                             <td>Blue</td>
-                                            <td>2,800.00</td>
+                                            <td>$ 2,800.00</td>
                                             <td>New</td>
                                             <td>Nga</td>
                                             <ProductActions onClick={() => this.addProduct(true)} />
@@ -333,7 +333,7 @@ class ViewOrder extends Component {
                                             <td>1</td>
                                             <td>2,800.00</td>
                                             <td>Blue</td>
-                                            <td>2,800.00</td>
+                                            <td>$ 2,800.00</td>
                                             <td>New</td>
                                             <td>Nga</td>
                                             <ProductActions onClick={() => this.addProduct(true)} />
@@ -351,15 +351,17 @@ class ViewOrder extends Component {
                                             <td>1</td>
                                             <td>2,800.00</td>
                                             <td>Blue</td>
-                                            <td>2,800.00</td>
+                                            <td>$ 2,800.00</td>
                                             <td>New</td>
                                             <td>Nga</td>
                                             <ProductActions onClick={() => this.addProduct(true)} />
                                         </tr>
                                     </tbody>
                                     <tfoot>
-                                        <tr>
-
+                                        <tr className='active'>
+                                            <td colSpan='12' className='text-red text-right'><b>Grand Total:</b></td>
+                                            <td><b className='text-red'>$ 548.00</b></td>
+                                            <td colSpan='3'></td>
                                         </tr>
                                     </tfoot>
                                 </table>
