@@ -30,18 +30,35 @@ b, strong, th {
     color: rgb(214, 34, 34)
 }
 
-.fa-edit {
-    color: rgb(11, 184, 11);
-    cursor: pointer;
+.btn-sm {
+    padding: 4px 10px;
+}
+
+.btn-menu{
+    position: relative;
+}
+
+.btn-menu.btn-sm{
+    padding: 2px 5px;
+}
+
+.btn-menu .dropdown-menu{
+    margin: 0;
+}
+
+.dropdown-menu.right{
+    right: 100%;
+    top:0;
+    left: auto
+}
+
+.btn-menu:hover .dropdown-menu{
+    display: block
 }
 
 label {
     font-weight: 500;
     margin-bottom: 0;
-}
-
-.btn-sm {
-    padding: 4px 10px;
 }
 
 .form-control {

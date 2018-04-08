@@ -87,7 +87,7 @@ class ViewOrder extends Component {
                                                 user={this.props.user}
                                                 isOpen={this.state.editOrder}
                                                 onClose={() => this.editOrder(false)} />
-                                            <button onClick={() => this.editOrder(true)} className='btn btn-primary'>Edit order info</button>
+                                            <button onClick={() => this.editOrder(true)} className='btn btn-primary'>Edit Info</button>
                                         </div>
                                     </div>
                                 </div>
@@ -163,11 +163,8 @@ class ViewOrder extends Component {
                                                 onClose={() => {
                                                     this.setState({ editPayment: false })
                                                 }} />
-                                            <button
-                                                onClick={() => {
-                                                    this.setState({ editPayment: true })
-                                                }}
-                                                className='btn btn-primary'>Edit payment info</button>
+                                            <button onClick={() => { this.setState({ editPayment: true }) }}
+                                                className='btn btn-primary'>Edit Payment</button>
                                         </div>
                                     </div>
                                 </div>
@@ -180,11 +177,13 @@ class ViewOrder extends Component {
                                 <AddProductModal width='60%' isOpen={this.state.isAddProduct} onClose={() => this.addProduct(false)} />
                                 <button onClick={() => this.addProduct(true)} className='btn btn-primary'>Add product</button>
                             </div>
-                            <div className='table-scroll'>
-                                <table className='table' style={{ minWidth: '1200px' }}>
+                            <div className='table-scroll1'>
+                                <table className='table' style={{ minWidth: 'auto' }}>
                                     <thead>
                                         <tr>
-                                            <th></th>
+                                            <th>
+                                                <input type='checkbox' />
+                                            </th>
                                             <th>.No</th>
                                             <th>Code</th>
                                             <th>Name</th>
@@ -199,7 +198,7 @@ class ViewOrder extends Component {
                                             <th>Total Price</th>
                                             <th>Status</th>
                                             <th>Maker</th>
-                                            <th></th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -276,7 +275,7 @@ class ViewOrder extends Component {
                                             <td colSpan='2'></td>
                                         </tr>
                                         <tr>
-                                            <td></td>
+                                            <td colSpan='3'></td>
                                             <td colSpan='13'>
                                                 <table className='table'>
                                                     <thead>
@@ -381,7 +380,16 @@ class ViewOrder extends Component {
 class ProductActions extends Component {
     render() {
         return (
-            <td><span onClick={this.props.onClick} title='Edit' className='far fa-edit'></span></td>
+            <td className='text-center'>
+                <button type="button" className="btn btn-sm btn-menu">
+                    <span className="glyphicon glyphicon-cog"></span>
+                    <ul className="dropdown-menu right">
+                        <li><a onClick={this.props.onClick}>Edit product</a></li>
+                        <li><a href="#">Delete product</a></li>
+                        <li><a href="#">Something else here</a></li>
+                    </ul>
+                </button>
+            </td>
         );
     }
 }
